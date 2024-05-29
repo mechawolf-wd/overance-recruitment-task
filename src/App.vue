@@ -11,7 +11,7 @@ const { addField, removeField, searchForFields } = appStore;
 </script>
 
 <template>
-  <div class="container">
+  <form class="container">
     <input
       v-model="searchedText"
       @input="searchForFields"
@@ -40,7 +40,7 @@ const { addField, removeField, searchForFields } = appStore;
     >
       +
     </button>
-  </div>
+  </form>
 </template>
 
 <style scoped>
