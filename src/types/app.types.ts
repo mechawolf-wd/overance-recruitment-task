@@ -1,4 +1,4 @@
 export interface InputField {
-    modelValue: string;
-    isHighlighted: boolean;
+    modelValue: string
+    isHighlighted: boolean
 }

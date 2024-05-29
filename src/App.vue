@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { useAppStore } from "./store/app.store";
-import { storeToRefs } from "pinia";
+import { useAppStore } from './store/app.store'
+import { storeToRefs } from 'pinia'
 import { getAmountOfVowels } from './utils/vowels'
 
-const appStore = useAppStore();
+const appStore = useAppStore()
 
-const { inputFields, isFieldRemovalDisabled, searchedText, isFieldAdditionDisabled } = storeToRefs(appStore);
+const {
+  inputFields,
+  isFieldRemovalDisabled,
+  searchedText,
+  isFieldAdditionDisabled,
+} = storeToRefs(appStore)
 
-const { addField, removeField, searchForFields } = appStore;
+const { addField, removeField, searchForFields } = appStore
 </script>
 
 <template>
@@ -16,7 +21,8 @@ const { addField, removeField, searchForFields } = appStore;
       v-model="searchedText"
       @input="searchForFields"
       :class="{
-        highlight: searchedText && inputFields.some((field) => field.isHighlighted),
+        highlight:
+          searchedText && inputFields.some((field) => field.isHighlighted),
       }"
       placeholder="Search..."
       class="search-input"
@@ -44,7 +50,7 @@ const { addField, removeField, searchForFields } = appStore;
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 .container {
   display: flex;
@@ -53,7 +59,7 @@ const { addField, removeField, searchForFields } = appStore;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .search-input {
@@ -165,13 +171,15 @@ button:hover:not(:disabled) {
 }
 
 @media (max-width: 768px) {
-  .search-input, .field-list-fields {
+  .search-input,
+  .field-list-fields {
     width: 80vw;
   }
 }
 
 @media (max-width: 480px) {
-  .search-input, .field-list-fields {
+  .search-input,
+  .field-list-fields {
     width: 90vw;
   }
 }
